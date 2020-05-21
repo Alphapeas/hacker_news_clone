@@ -1,0 +1,61 @@
+services:
+  backend:
+    build:
+      args:
+        env: dev
+      context: /home/alphapeas/PycharmProjects/backend_river/backend
+      dockerfile: backend.dockerfile
+    command: python manage.py runserver 0.0.0.0:8000
+    depends_on:
+    - db
+    environment:
+      BACKEND_CORS_ORIGINS: http://localhost, http://localhost:8080, https://localhost,
+        https://localhost:8080
+      EMAILS_FROM_EMAIL: angel_sp@ukr.net
+      FIRST_SUPERUSER: admin@shipandgo.com
+      FIRST_SUPERUSER_PASSWORD: Password123$$
+      POSTGRES_DB: app
+      POSTGRES_PASSWORD: 795b6cf9664ad956cd3e9b5804d6a9adff782y3487yf04385g4944cd05debd518f1f274
+      POSTGRES_SERVER: db
+      POSTGRES_USER: postgres
+      PROJECT_NAME: shipandgo
+      SECRET_KEY: da41d8b1eda63060c8d699f66e6fc47ea4551ae3d6098aa62a465c14ef8455bd
+      SENTRY_DSN: ''
+      SERVER_HOST: https://localhost
+      SERVER_NAME: localhost
+      SMTP_HOST: smtp.ukr.net
+      SMTP_PASSWORD: MtzXiWyvlOCbNP8Z
+      SMTP_PORT: '465'
+      SMTP_TLS: "True"
+      SMTP_USER: angel_sp@ukr.net
+      USERS_OPEN_REGISTRATION: "False"
+    networks:
+      default:
+        aliases:
+        - localhost
+    ports:
+    - published: 8000
+      target: 8000
+    volumes:
+    - /home/alphapeas/PycharmProjects/backend_river/backend/app:/app:rw
+  db:
+    environment:
+      PGDATA: /var/lib/postgresql/data/pgdata
+      POSTGRES_DB: app
+      POSTGRES_PASSWORD: 795b6cf9664ad956cd3e9b5804d6a9adff782y3487yf04385g4944cd05debd518f1f274
+      POSTGRES_SERVER: db
+      POSTGRES_USER: postgres
+    image: postgres:11
+  pgadmin:
+    depends_on:
+    - db
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@shipandgo.com
+      PGADMIN_DEFAULT_PASSWORD: Password123$$
+      PGADMIN_LISTEN_PORT: '5050'
+    image: dpage/pgadmin4
+    ports:
+    - published: 5050
+      target: 5050
+version: '3.3'
+

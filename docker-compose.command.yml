@@ -1,0 +1,6 @@
+version: "3.3"
+services:
+  #backend:
+    #command: bash -c "while true; do sleep 1; done" # Infinite loop to keep container live doing nothing
+  backend:
+    command: python manage.py runserver 0.0.0.0:8000

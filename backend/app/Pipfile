@@ -1,0 +1,31 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+ipdb = "*"
+django-debug-toolbar = "*"
+
+[packages]
+Django = "*"
+django-configurations = "*"
+django_cron="*"
+psycopg2-binary = "*"
+requests = "*"
+djangorestframework = "*"
+django-filter = "*"
+markdown = "*"
+
+#Authorization
+djoser = "*"
+djangorestframework_simplejwt = "*"
+django-extensions = "*"
+Pillow = "*"
+
+
+[requires]
+python_version = "3.8"
+
+#[pipenv]
+#allow_prereleases = true
