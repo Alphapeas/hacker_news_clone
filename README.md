@@ -1,12 +1,29 @@
 
 # App "News with Django3, DRF, docker-compose, Cron, PGAdmin, Postgresql"
-
+* Here maybe I will deploy this app: http://boiling-oasis-95257.herokuapp.com/
+* Git to heroku repo: https://github.com/Alphapeas/heroku_hn_clone.git
+* Postman variables: https://www.getpostman.com/collections/1ebdf9fcc78aeb97838c
+ ###All methods:
+    # POST
+    URI - post/list/ - GET, News posts list (all), pagination - ?page=x
+    URI - post/create/ -  POST, News post creation (only authenticated)
+    URI - post/update/<pk>/ -  PUT, PATCH, News post updating (only authenticated and owners or admins)
+    URI - post/detail/<pk>/ -  GET, News post detail info (all users)
+    URI - post/<int:pk>/vote/ -  POST, Add/delete vote (only authenticated)
+    URI - post/delete/<pk>/ - DELETE, delete post (only admins)
+    # COMMENT
+    URI - comment/create/ - POST, create comment (only authenticated)
+    URI - comment/list/?post=pk - GET, News post`s comments list (all users)
+    URI - comment/update/<pk>/ - PUT, PATCH, update news post`s data (only authenticated and owners or admins)
+    URI - comment/delete/<pk>/ - DELETE, delete comment (only admins)
 ## Backend Requirements
 
 * Docker
 * Docker Compose
 
 ## Backend local development
+
+*First of all you need to specify vars in .env files
 
 * Start the stack with Docker Compose:
 

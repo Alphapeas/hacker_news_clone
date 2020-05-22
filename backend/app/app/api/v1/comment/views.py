@@ -23,7 +23,7 @@ class CommentListAPIView(ListAPIView):
 
     def get_queryset(self):
         queryset = Comment.objects.filter(parent=None)
-        query = self.request.GET.get('q')
+        query = self.request.GET.get('post')
         if query:
             queryset = queryset.filter(post=query)
         return queryset
