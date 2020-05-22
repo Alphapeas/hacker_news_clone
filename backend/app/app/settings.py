@@ -35,6 +35,9 @@ class Base(Configuration):
         'rest_framework.authtoken',
         'djoser',
         'drf_yasg',
+
+        'user.apps.UserConfig',
+        'post.apps.BlogConfig',
     ]
 
     REST_FRAMEWORK = {
@@ -117,6 +120,10 @@ class Base(Configuration):
         ('uk-UA', _('Ukrainian')),
         ('ru-RU', _('Russian')),
         ('en-US', _('English'))
+    ]
+
+    CRON_CLASSES = [
+        'post.cron.ClearVotes',
     ]
 
     TIME_ZONE = 'UTC'
